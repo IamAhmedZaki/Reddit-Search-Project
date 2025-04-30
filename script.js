@@ -24,18 +24,21 @@ searchForm,addEventListener('submit', e=>{
     .then(results=>{
         console.log(results);
         
-        // let images=results.preview ? results.preview.images[0].source.url
         
         let output='<div class="card-columns">'
         
         results.forEach(post => {
+            const images=post.preview ? post.preview.images[0].source.url:"https://martech.org/wp-content/uploads/2014/07/reddit-combo-1920.png";
             
             output+=`<div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="${images}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${post.title}</h5>
                             <p class="card-text">${truncateText(post.selftext,100)}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="${post.url}" target="_blank" class="btn btn-primary">Read More</a>
+                            <hr>
+                            <span class= "badge bg-secondary"> Subreddit: ${post.subreddit} </span>
+                            <span class= "badge bg-dark"> score: ${post.score} </span>
                         </div>
                     </div>`
         });
