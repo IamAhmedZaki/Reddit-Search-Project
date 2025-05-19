@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    user-select: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#app{
+    
+    /*height: 100%;*/
+    /*width: 100%;*/
+}
+.mainParent {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+}
+.mainParentInner {
+    display: grid;
+    grid-template-columns: 17% 83%;
+    height: 100%;
+    width: 100%;
+}
+.tabBoxLogoDiv {
+    /* position: absolute;
+    top: 25px; */
+    margin: 40px 0;
+    color: white;
+}
+.tabBtnsBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sideBarAnkers {
+    text-decoration: none;
+    padding: 20px 40px;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tabImgTitle {
+    margin-bottom: 0;
+}
+.tabBtns {
+    background-color: white;
+    color: black;
+    /* padding: 5px 60px; */
+    max-width: 240px;
+    width: 100%;
+    border: 0;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+.tabContent {
+    display: none;
+}
+.tabBoxLogo {
+    width: 270px;
+}
+.sidebar {
+    height: 100%;
+    width: 320px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    z-index: 1000;
+}
+.content-overlay {
+    backdrop-filter: blur(5px);
+    visibility: hidden;
+}
+#overlay {
+    visibility: hidden;
+}
+.overlay-active {
+    display: block;
+}
+.sidebarCloseBtn {
+    display: none;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+    top: -10px;
+}
+.sidebarOpenBtn {
+    display: none;
+}
+.sideTabBox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+    /* background: #e62162; */
+    background: linear-gradient(to top, #ff0091, #ff0058);
+    color: black;
+}
+
+/* .dasignersCardsBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} */
+.dashHdng {
+    font-weight: 600;
+}
+.dasignersCardsBox {
+    width: max-content;
+}
+.dasignersCards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.pinkBtn {
+    background-color: #fd2254;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-title {
+    font-weight: 600;
+}
+.card-img-top {
+    height: 50px;
+    width: 50px;
+    margin: 20px auto 0 auto;
+    border-radius: 50%;
+}
+#dashboardDiv {
+    display: none;
+}
+
+
+
+
+/* DASHBOARD PAGE CSS */
+.info-box {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.info-box p {
+    margin: 0;
+    color: #6c757d;
+}
+.info-box h2 {
+    margin-top: 10px;
+    font-size: 24px;
+}
+.chart-container {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.plan-details {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.progress {
+    height: 25px;
+    margin-bottom: 10px;
+}
+.progress-bar {
+    background-color: #007bff;
+}
+.activity-log {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.activity-item {
+    margin-bottom: 15px;
+}
+.activity-item p {
+    margin: 0;
+}
+
+table {
+    border-radius: 20px;
+    --bs-table-striped-bg: rgb(0 0 0 / 0%) !important;
+}
+thead {
+    border-bottom: 1px solid gray;
+}
+.firstTh {
+    border-top-left-radius: 20px;
+    text-align: center;
+}
+.lastTh {
+    border-top-right-radius: 20px;
+}
+th {
+    background-color: #ebebeb !important;
+    font-weight: normal;
+    color: #3f3f3f !important;
+}
+tr {
+    background-color: white;
+    border-bottom: 0;
+    border-color: white ;
+}
+td {
+    background: #fff !important;
+    color: gray !important;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: white !important;
+}
+.table>:not(caption)>*>* {
+    padding: 20px;
+}
+.firstTd {
+    border-bottom-left-radius: 20px;
+}
+.lastTd {
+    border-bottom-right-radius: 20px;
+}
+
+/* DASHBOARD PAGE CSS */
+
+
+/* RANKING PAGE CSS */
+.tableBtnsBox {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+.tableTopBtns {
+    border: 1px solid lightgray;
+    color: black;
+    padding: 5px 20px;
+    background-color: #f2f2f2;
+}
+.tableTopBtns.active {
+    background-color: white;
+}
+.rankbtn-group .btn {
+    margin-right: 10px;
+}
+.ranktable {
+    margin-top: 20px;
+}
+.rankcard {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.plan-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.plan-icon {
+    font-size: 24px;
+    background-color: #eef4ff;
+    padding: 10px;
+    border-radius: 50%;
+}
+.plan-info {
+    margin-left: 10px;
+}
+.plan-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+.plan-info p {
+    margin: 0;
+    color: #666;
+}
+.rankprogress-section {
+    margin-top: 20px;
+}
+.rankprogress-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.rankprogress-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    flex: 1;
+}
+.rankprogress-bar {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 2;
+    margin: 0 10px;
+    height: 8px;
+}
+.rankprogress {
+    height: 100%;
+    border-radius: 8px;
+}
+.projects-progress {
+    background-color: #ff8c00;
+    width: 33%;
+}
+.users-progress {
+    background-color: #7a5cff;
+    width: 20%;
+}
+.designs-progress {
+    background-color: #ff4d4d;
+    width: 75%;
+}
+span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* .rankcard-title {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+.rankprogress-bar {
+    background-color: orange;
+}
+.rankprogress-bar.bg-success {
+    background-color: purple;
+}
+.rankprogress-bar.bg-info {
+    background-color: hotpink;
+}
+.rankbadge-success {
+    background-color: #28a745;
+}
+.rankbadge-danger {
+    background-color: #dc3545;
+} */
+/* RANKING PAGE CSS */
+
+
+/* FORM PAGE CSS */
+.form-control {
+    background-color: #e3e7ee;
+    border-bottom: 1px solid black;
+}
+.form-select {
+    background-color: #e3e7ee;
+    border-bottom: 1px solid black;
+}
+/* FORM PAGE CSS */
+
+
+
+/* @media screen and (max-device-width: 1100px) {
+    .sidebar {
+        width: 0;
+    }
+    .sidebarCloseBtn {
+        display: block;
+    }
+    .sidebarOpenBtn {
+        display: block;
+    }
+    .dasignersCards {
+        justify-content: center;
+    }
+
+    .mainParentInner {
+        grid-template-columns: unset;
+    }
+    .content-overlay {
+        display: none;
+    }
+} */
+
+@media screen and (max-device-width: 1100px) {
+
+    .sidebar {
+        width: 0;
+    }
+    .sidebarCloseBtn {
+        display: block;
+    }
+    .sidebarOpenBtn {
+        display: block;
+    }
+    .dasignersCards {
+        justify-content: center;
+    }
+
+    .mainParentInner {
+        display: grid;
+        grid-template-columns: 0% 100%;
+        height: 100%;
+        width: 100%;
+    }
+    
+}
+
+.EB-theme{
+    background-color: #FF0072;
+}
+.btnEmail{
+    background-color: #FF0072;
+    color: #e3e7ee;
+}

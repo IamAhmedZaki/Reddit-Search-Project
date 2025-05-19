@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Costa Carts</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="css/colorpicker.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+
+  <!-- Text Editor Modal -->
+  <div class="modal fade" id="textModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="textModalContent">
+            <h5 class="">Text</h5>
+            <p class="">Inter</p>
+            <div class="d-flex justify-content-between align-items-center px-2">
+              <select class="form-select" style="width: max-content;">
+                <option selected>Regular</option>
+                <option value="1">Light</option>
+                <option value="2">Meduim</option>
+                <option value="3">Bold</option>
+              </select>
+              <div class="">
+                <select class="form-select" style="width: max-content;">
+                  <option selected>12</option>
+                  <option value="1">14</option>
+                  <option value="2">16</option>
+                  <option value="3">20</option>
+                </select>
+                <!-- <input type="number" value="12" class="textModalNumInput"> -->
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center px-2 py-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <img src="img/auto1.PNG" alt="" class="textIconImg">
+                <p class="mb-0">Auto</p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <img src="img/auto2.PNG" alt="" class="textIconImg">
+                <p class="mb-0">0%</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center px-2 py-3">
+              <div class="d-flex justify-content-center align-items-center" style="gap: 10px;">
+                <img src="img/centerAlign.png" alt="" class="textIconImg">
+                <p class="mb-0">0</p>
+              </div>
+              <div class="d-flex justify-content-center align-items-center" style="gap: 10px;">
+                <img src="img/spaceBetween.png" alt="" class="textIconImg">
+                <img src="img/leftAlign.png" alt="" class="textIconImg">
+                <img src="img/square.png" alt="" class="textIconImg">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center px-2 py-3">
+              <div class="">
+                <img src="img/leftAlign.png" alt="" class="textIconImg">
+                <img src="img/format.png" alt="" class="textIconImg">
+                <img src="img/rightAlign.png" alt="" class="textIconImg">
+              </div>
+              <div class="">
+                <img src="img/topAlign.png" alt="" class="textIconImg">
+                <img src="img/centerAlign.png" alt="" class="textIconImg">
+                <img src="img/bottomAlign.png" alt="" class="textIconImg">
+              </div>
+            </div>
+
+
+            <div class="container-color">
+              <input type="color" id="color-picker" />
+              <span id="value">000000</span>
+            </div>
+            <div class="uploadFontDiv d-flex justify-content-center align-items-center">
+              <button class="uploadFontBtn">Upload a Font</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="colorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body d-flex justify-content-center align-items-center">
+
+          <div class="vue-color-picker">
+            <div class="vue-color-picker-container">
+              <div id="vue_chrome_picker">
+                <chrome-color v-model="color"></chrome-color>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image File Upload Modal -->
+  <div class="modal fade" id="imageUploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="upContainer">
+            <input type="file" id="upload-button" accept="image/*" />
+            <label class="upLabel" for="upload-button">
+              <i class="fa-solid fa-upload"></i>&nbsp; Choose Or Drop Photos
+            </label>
+            <div id="error"></div>
+            <div id="image-display"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sizing Modal -->
+  <div class="modal fade" id="sizeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-3">
+          <h6 class="">Size</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="">
+            <label class="form-check-label" for="">
+              3 x 3 M
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="" checked>
+            <label class="form-check-label" for="">
+              3 x 4.5 M
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="">
+            <label class="form-check-label" for="">
+              3 x 6 M
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Media Modal -->
+  <div class="modal fade" id="socialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body py-5 px-4">
+          <div class="socialIconsBox">
+            <div class="socialIcons">
+              <img src="img/facebook.png" alt="" class="socialIconImg">
+            </div>
+            <div class="socialIcons">
+              <img src="img/instagram.png" alt="" class="socialIconImg">
+            </div>
+            <div class="socialIcons">
+              <img src="img/social.png" alt="" class="socialIconImg">
+            </div>
+          </div>
+          <div class="socialIconsBox">
+            <div class="socialIcons">
+              <img src="img/twitter.png" alt="" class="socialIconImg">
+            </div>
+            <div class="socialIcons">
+              <img src="img/whatsapp.png" alt="" class="socialIconImg">
+            </div>
+            <div class="socialIcons">
+              <img src="img/linkedin.png" alt="" class="socialIconImg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save and Continue Modal -->
+  <div class="modal fade" id="saveContinueModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="">
+            <div class="formImgDiv">
+              <img src="img/formImg.png" alt="">
+            </div>
+            <div class="formDiv p-5">
+              <h5 class=""><strong>Save this design</strong></h5>
+              <form>
+                <div class="mb-3">
+                  <label for="" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="">
+                </div>
+                <div class="mb-3">
+                  <label for="" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="">
+                </div>
+                <div class="d-flex justify-content-end align-items-center">
+                  <button type="submit" class="btn pinkBtn mt-3">Save and Generate</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mainParentConfig">
+    <div class="leftBtnsOuterBox">
+      <h5 class="pb-5 mb-3">Design Tools</h5>
+      <div class="leftBtnsBox">
+        <div class="designToolsBtns" data-bs-toggle="modal" data-bs-target="#textModal">
+          <img src="img/text.png" alt="" class="">
+        </div>
+        <div class="designToolsBtns" data-bs-toggle="modal" data-bs-target="#colorModal">
+          <img src="img/brush.png" alt="" class="">
+        </div>
+        <div class="designToolsBtns" data-bs-toggle="modal" data-bs-target="#imageUploadModal">
+          <img src="img/photo.png" alt="" class="">
+        </div>
+        <div class="designToolsBtns" data-bs-toggle="modal" data-bs-target="#sizeModal">
+          <img src="img/full.PNG" alt="" class="" style="width: 32px;">
+        </div>
+        <div class="designToolsBtns" data-bs-toggle="modal" data-bs-target="#socialModal">
+          <img src="img/share.png" alt="" class="">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="configBox">
+      <!-- <button data-bs-toggle="modal" data-bs-target="#saveContinueModal">asdsd</button> -->
+      <div class="topTimeLineDiv">
+        <div class="tablinks active">Roof</div>
+        <div class="configTimeLine"></div>
+        <div class="tablinks">Walls</div>
+        <div class="configTimeLine"></div>
+        <div class="tablinks">Table</div>
+        <div class="configTimeLine"></div>
+        <div class="tablinks">Flags</div>
+        <div class="tablinks"></div>
+      </div>
+
+      <div class="tabContent" id="Roof" style="display: block;">
+        <div class="d-flex justify-content-center align-items-center pt-5 mt-5">
+          <img src="img/roofImg.png" alt="" class="">
+        </div>
+      </div>
+
+      <div class="tabContent" id="Wall">
+        <div class="wallsContentBox mt-5">
+          <div class="wallsContentBoxes">
+            <div class="switch-container">
+              <label class="switch">
+                <input type="checkbox" id="switch" checked>
+                <span class="slider"></span>
+              </label>
+              <span class="switch-label" id="switch-label">Left Wall</span>
+            </div>
+            <p>Height</p>
+            <div>
+              <div class="partitionDiv parent">
+                <div class="halfDiv children">Half</div>
+                <div class="halfDiv children active">Full</div>
+              </div>
+              <div>
+                <img src="img/1.PNG" alt="" class="numImg">
+                <div class="d-flex justify-content-center py-3"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wallsContentBoxes">
+            <div class="switch-container">
+              <label class="switch">
+                <input type="checkbox" id="switch" checked>
+                <span class="slider"></span>
+              </label>
+              <span class="switch-label" id="switch-label">Right Wall</span>
+            </div>
+            <p>Height</p>
+            <div>
+              <div class="partitionDiv parent">
+                <div class="halfDiv children">Half</div>
+                <div class="halfDiv children active">Full</div>
+              </div>
+              <div>
+                <img src="img/2.PNG" alt="" class="numImg">
+                <div class="d-flex justify-content-center py-3">
+                  <div class="position-absolute form-check d-flex justify-content-center" style="gap: 6px;">
+                    <input class="form-check-input" type="checkbox" value="">
+                    <label class="form-check-label" for="">Copy Left Wall</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wallsContentBoxes">
+            <div class="switch-container">
+              <label class="switch">
+                <input type="checkbox" id="switch" checked>
+                <span class="slider"></span>
+              </label>
+              <span class="switch-label" id="switch-label">Back Wall</span>
+            </div>
+            <div class="position-relative">
+              <img src="img/1.PNG" alt="" class="numImg">
+              <div class="d-flex justify-content-center py-3">
+                <div class="position-absolute mx-auto form-check d-flex justify-content-center" style="gap: 6px;">
+                  <input class="form-check-input" type="checkbox" value="" checked>
+                  <label class="form-check-label" for="">Copy Left Wall</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabContent" id="Table">
+        <div class="d-flex justify-content-center align-items-center pt-5 mt-5">
+          <img src="img/tableImg.png" alt="" class="">
+        </div>
+      </div>
+
+      <div class="tabContent" id="Flags">
+        <div class="d-flex justify-content-center">
+          <div class="d-flex flex-column align-items-center mt-5 pt-5 pe-5 me-5">
+            <div class="switch-container">
+              <label class="switch">
+                <input type="checkbox" id="switch" checked>
+                <span class="slider"></span>
+              </label>
+              <span class="switch-label" id="switch-label">Left Flag</span>
+            </div>
+            <div class="switch-container">
+              <label class="switch">
+                <input type="checkbox" id="switch" checked>
+                <span class="slider"></span>
+              </label>
+              <span class="switch-label" id="switch-label">Right Flag</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center pt-5 mt-5">
+            <img src="img/flagsImg.png" alt="" class="">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="tabContent" id="Model3d" style="height: 100%; width: 100%;">
+        <div class="d-flex justify-content-center align-items-center py-5 my-5">
+          <!-- <img src="img/3dModel.png" alt="" class="img-fluid"> -->
+          <iframe height="100%" width="100%" class="iframe-res" id="app" src="https://playcanv.as/e/p/7hHG5niG/"
+            frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div class="moveBtnBox">
+        <button type="button" class="btn btn-dark backBtn">Back</button>
+        <button type="button" class="btn pinkBtn nextBtn">Next</button>
+        <button type="button" class="btn pinkBtn saveBtn d-none" data-bs-toggle="modal"
+          data-bs-target="#saveContinueModal">Save and Continue</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-color/2.8.1/vue-color.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

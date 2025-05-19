@@ -1,0 +1,22 @@
+.modal-header{
+    background-color: #FF0072;
+}
+
+.table-responsive {
+    /* overflow-x: auto !important; */
+    display: block;
+   
+    white-space: nowrap;
+}
+
+.table {
+    min-width: 1000px; /* Adjust this value as needed */
+    /* overflow: scroll; */
+}
+
+.row>* {
+   
+    /* overflow: scroll; */
+}
+
+
